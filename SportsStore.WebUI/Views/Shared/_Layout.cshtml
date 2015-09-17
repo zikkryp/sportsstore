@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @*<link rel="stylesheet" href="~/Content/bootstrap.min.css" />*@
+    <link rel="stylesheet" href="~/Content/bootstrap.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap-theme.css" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-static-top navbar-inverse">
+    @*<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">*@
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Web Store</a>
+                </div>
+                @Html.Action("Summary", "Cart")
+            </div><!--/.container-fluid -->
+        </nav>
+    @*<div class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">SPORTS STORE</a>
+                </div>
+                <div class="nav navbar-nav navbar-right">
+                    <p>right header</p>
+                </div>
+                @Html.Action("Summary", "Cart")
+            </div>
+        </div>*@
+    <div class="container">
+        <div class="row">
+            <div id="categories" class="col-md-4">
+                @Html.Action("Menu", "Nav")
+            </div>
+            <div class="col-md-8">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <hr />
+            <p>KrypApp © @DateTime.Now.Year</p>
+        </div>
+    </footer>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>
