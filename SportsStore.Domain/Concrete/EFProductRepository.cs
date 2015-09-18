@@ -19,5 +19,23 @@ namespace SportsStore.Domain.Concrete
                 return context.Products;
             }
         }
+
+        public void Add(Product item)
+        {
+            context.Products.Add(item);
+            context.SaveChanges();
+        }
+
+        public void Remove(Product item)
+        {
+            context.Products.Remove(item);
+            context.SaveChanges();
+        }
+
+        public void Update(Product item)
+        {
+            context.Entry(item).State = System.Data.Entity.EntityState.Modified;
+            context.SaveChanges();
+        }
     }
 }

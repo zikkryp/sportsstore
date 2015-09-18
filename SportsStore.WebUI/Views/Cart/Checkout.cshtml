@@ -18,7 +18,6 @@
     foreach (var property in ViewData.ModelMetadata.Properties)
     {
         if (property.PropertyName != "Name" && property.PropertyName != "GiftWrap")
-        //if (property.PropertyName != "Name" && property.PropertyName != "GiftWrap")
         {
             <div class="form-group">
                 <label>@(property.DisplayName ?? property.PropertyName)</label>

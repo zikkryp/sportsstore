@@ -1,20 +1,12 @@
 ﻿@model SportsStore.Domain.Entities.Cart
 
-@*<div class="navbar-right">
-    @Html.ActionLink("Checkout", "Index", "Cart", new { returnUrl = Request.Url.PathAndQuery }, new { @class = "btn btn-default" })
-</div>*@
-
 <div id="navbar" class="navbar-collapse collapse">
     <ul class="nav navbar-nav navbar-right">
         <li><a>Your cart: @Model.Lines.Sum(x => x.Quantity) item(s)</a></li>
         <li><a>@Model.ComputeTotalValue().ToString("c")</a></li>
-        <li class="active">@Html.ActionLink("Checkout", "Index", "Cart", new { returnUrl = Request.Url.PathAndQuery })</li>
+        @if (Model.Lines.Count() > 0)
+        {
+            <li class="active">@Html.ActionLink("Checkout", "Index", "Cart", new { returnUrl = Request.Url.PathAndQuery })</li>
+        }
     </ul>
 </div>
-
-@*@Html.ActionLink("Checkout", "Index", "Cart", new { returnUrl = Request.Url.PathAndQuery }, new { @class = "btn btn-default" })
-
-
-    
-    @Model.Lines.Sum(x=> x.Quantity) item(s)
-    *@

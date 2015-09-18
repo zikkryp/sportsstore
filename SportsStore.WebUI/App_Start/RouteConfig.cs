@@ -34,13 +34,18 @@ namespace SportsStore.WebUI
             //    defaults: new { controller = "Product", action = "List", id = UrlParameter.Optional }
             //);
 
+            //routes.MapRoute(null,
+            //    "",
+            //    new { controller = "Product", action = "List", category = (string)null, page = 1 }
+            //);
+
             routes.MapRoute(null,
                 "",
-                new { controller = "Product", action = "List", category = (string)null, page = 1 }
+                new { controller = "SignIn", action = "Index" }
             );
 
             routes.MapRoute(null,
-                "Page{page}",
+                "Page/{page}",
                 new { controller = "Product", action = "List", category = (string)null },
                 new { page = @"\d+" }
             );
@@ -51,7 +56,7 @@ namespace SportsStore.WebUI
             );
 
             routes.MapRoute(null,
-                "{category}/Page{page}",
+                "{category}/Page/{page}",
                 new { controller = "Product", action = "List" },
                 new { page = @"\d+"}
             );

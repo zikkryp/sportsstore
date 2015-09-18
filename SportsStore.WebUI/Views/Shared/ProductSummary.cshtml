@@ -1,19 +1,23 @@
 ﻿@model SportsStore.Domain.Entities.Product
 
-<div class="well well-lg">
-    <h3>
-        <strong>@Model.Name</strong>
-        <span class="pull-right label label-primary">@Model.Price.ToString("c")</span>
-    </h3>
 
-    @using (Html.BeginForm("AddToCart", "Cart"))
-    {
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h4>
+            @Model.Name
+            <span class="pull-right">@Model.Price.ToString("c")</span>
+        </h4>
+    </div>
+    <div class="panel-body">
+        @Model.Description
         <div class="pull-right">
-            @Html.HiddenFor(x => x.ProductID)
-            @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
-            <input type="submit" class="btn btn-success" value="Add to cart" />
+            @using (Html.BeginForm("AddToCart", "Cart"))
+            {
+                @Html.HiddenFor(x => x.ProductID)
+                @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                <input type="submit" class="btn btn-success" value="Add to cart" />
+            }
+            @*@Html.ActionLink("Remove", "", null, new { @class = "btn btn-danger" })*@
         </div>
-    }
-
-    <span class="lead">@Model.Description</span>
+    </div>
 </div>

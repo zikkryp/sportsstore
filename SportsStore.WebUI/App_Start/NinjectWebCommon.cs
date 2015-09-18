@@ -10,7 +10,7 @@ namespace SportsStore.WebUI.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
-    using SportsStore.WebUI.Infrastructure;
+    using Infrastructure;
     using System.Web.Mvc;
 
     public static class NinjectWebCommon 
